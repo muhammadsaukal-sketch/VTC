@@ -44,27 +44,9 @@
         webkitallowfullscreen="true"
         mozallowfullscreen="true">
     ></iframe>
-
-    <script>
-        // --- SCRIPT PENERIMA PESAN (VERCEL SIDE) ---
-        // Script ini mendengarkan pesan dari Google Apps Script
-        window.addEventListener('message', function(e) {
-            // Cek apakah pesan valid dari sistem VTC
-            if (e.data.action === 'vtc_change_url') {
-                const newPath = e.data.url;
-                // Ubah URL di Browser Vercel
-                window.history.pushState({ path: newPath }, '', newPath);
-            }
-        });
-
-        // Handle Tombol Back Browser
-        window.onpopstate = function(event) {
-            // Opsional: Reload iframe jika back ditekan agar sinkron (simpelnya)
-            // Atau biarkan saja karena SPA Google Apps Script menangani statenya sendiri
-        };
-    </script>
   </body>
 </html>
+
 
 
 
